@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router()
-const { registerUser, loginUser, getUsers} = require("../controller/authController.js")
+const { registerUser, loginUser, getUsers, verifyOtp} = require("../controller/authController.js")
 const {protect} = require('../middleware/authmiddleware.js')
 const {admin} = require("../middleware/admin.middleware.js")
 
@@ -16,6 +16,6 @@ const {admin} = require("../middleware/admin.middleware.js")
 router.post("/register", registerUser)
 router.post("/login", loginUser)
 router.get("/user", protect, admin, getUsers)
-
+router.post("/verify-otp", verifyOtp)
 
 module.exports = router
