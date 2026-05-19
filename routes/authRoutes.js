@@ -1,8 +1,13 @@
 const express = require("express");
-const router = express.Router()
-const { registerUser, loginUser, getUsers, verifyOtp} = require("../controller/authController.js")
-const {protect} = require('../middleware/authmiddleware.js')
-const {admin} = require("../middleware/admin.middleware.js")
+const router = express.Router();
+const {
+  registerUser,
+  loginUser,
+  getUsers,
+  verifyOtp,
+} = require("../controllers/authController.js");
+const { protect } = require("../middleware/authmiddleware.js");
+const { admin } = require("../middleware/admin.middleware.js");
 
 // console.log(registerUser);
 // console.log(loginUser);
@@ -10,12 +15,9 @@ const {admin} = require("../middleware/admin.middleware.js")
 // console.log(protect);
 // console.log(admin);
 
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+router.get("/user", protect, admin, getUsers);
+router.post("/verify-otp", verifyOtp);
 
-
-
-router.post("/register", registerUser)
-router.post("/login", loginUser)
-router.get("/user", protect, admin, getUsers)
-router.post("/verify-otp", verifyOtp)
-
-module.exports = router
+module.exports = router;
