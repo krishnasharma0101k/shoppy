@@ -3,8 +3,9 @@ const express = require("express");
 const { protect } = require("../middleware/authmiddleware.js");
 const { admin } = require("../middleware/admin.middleware.js");
 const { updateOne } = require("../model/user.js");
-const multer = require("multer");
-const upload = multer({ dest: "upload/" });
+// const multer = require("multer");
+// const upload = multer({ dest: "upload/s3upload" });
+const upload = require("../middleware/multer.middleware.js")
 const {
   getProducts,
   getProductById,

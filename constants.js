@@ -1,4 +1,4 @@
- const DB_NAME = "ecom"
+ const DB_NAME = "shoppy"
 
 
  module.exports = DB_NAME 

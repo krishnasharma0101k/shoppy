@@ -1,5 +1,6 @@
 const Product = require('../model/product')
-const cloudinary = require('../config/cloudinary')
+const {uploadOnS3} = require('../utils/s3utils')
+// const cloudinary = require('../config/cloudinary')
 const { model } = require('mongoose')
 
 
@@ -39,7 +40,8 @@ const createProduct = async (req, res) => {
      let imageurl = ""
      if (req.file && req.file.path) {
         
-         const result = await cloudinary.uploader.upload(req.file.path)
+        //  const result = await cloudinary.uploader.upload(req.file.path)
+         const result = await uploadOnS3(req.file.path)
          console.log(result);
          
          imageurl = result.secure_url
