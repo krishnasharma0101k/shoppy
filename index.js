@@ -8,7 +8,10 @@ const connectDB = require("./config/db");
 connectDB();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:4000', 'http://127.0.0.1:4000', process.env.FRONTEND_URL],
+   credentials: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
