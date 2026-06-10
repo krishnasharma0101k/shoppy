@@ -9,7 +9,7 @@ connectDB();
 
 const app = express();
 app.use(cors({
-  origin: ['http://localhost:4000', 'http://127.0.0.1:4000', process.env.FRONTEND_URL],
+  origin: ['http://localhost:4000', 'http://127.0.0.1:4000',  'https://live-shoppy.netlify.app'],
    credentials: true
 }));
 
