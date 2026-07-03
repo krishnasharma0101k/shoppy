@@ -31,9 +31,9 @@ const registerUser = async (req, res) => {
             const otp = Math.floor(100000 + Math.random() * 900000).toString()
             const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 min expiry
 
-            const message = `wellcome to shoopnest , ${name} your otp for shopnest reistration is ${otp}`
+            const message = `wellcome to shoppy , ${name} your otp for shoppy reistration is ${otp}`
 
-            await sendEmail(email, "Wellcome to Shopnest - your otp for registration", message)
+            await sendEmail(email, "Wellcome to shoppy - your otp for registration", message)
 
             res.status(201).json({
                _id: newUser._id,
