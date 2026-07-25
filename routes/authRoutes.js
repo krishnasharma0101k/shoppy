@@ -8,16 +8,13 @@ const {
 } = require("../controllers/authController.js");
 const { protect } = require("../middleware/authmiddleware.js");
 const { admin } = require("../middleware/admin.middleware.js");
-
 // console.log(registerUser);
 // console.log(loginUser);
 // console.log(getUsers);
 // console.log(protect);
 // console.log(admin);
-
 router.post("/register", registerUser);
 router.post("/login", loginUser);
-router.get("/user", protect, admin, getUsers);
+router.get("/users", protect, admin, getUsers);
 router.post("/verify-otp", verifyOtp);
-
 module.exports = router;
